@@ -279,6 +279,7 @@ public class Clientes implements InfoCliente {
         
     }
     
+    // Implementado de la infertaz InfoCliente que muestra informacion del cliente 
     @Override
     public void mostrarInformacionCliente(){
         
