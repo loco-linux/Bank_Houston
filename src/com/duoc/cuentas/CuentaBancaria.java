@@ -11,10 +11,8 @@ import com.duoc.interfaces.SaldoCliente;
  * @author jbarr
  */
 public abstract class CuentaBancaria implements SaldoCliente {
-//    private static String tipoCuenta;
-//    private static int numeroCuenta;
-//    private static int saldo;
-//    private static int saldoUsuario;
+//    Deberian tener visualizacion en "private", pero el codigo me tira errores, por lo que me permitio dejarlo en protected con static
+
     
     
     protected static  String tipoCuenta;
@@ -76,6 +74,7 @@ public abstract class CuentaBancaria implements SaldoCliente {
     public abstract void girarDinero();   
     public abstract void calcularInteres();
     
+    // implementa la interface SaldoCliente que contiene el metodo consultarSaldo
     
     
 }

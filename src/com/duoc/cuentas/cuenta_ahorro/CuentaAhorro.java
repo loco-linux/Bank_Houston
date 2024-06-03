@@ -53,19 +53,19 @@ public class CuentaAhorro extends CuentaBancaria {
     @Override
     public void depositarDinero() {
 
-        CuentaAhorro.setTipoCuenta();
+        this.setTipoCuenta();
         System.out.println("--------------------------- ACCEDIENDO AL SISTEMA ---------------------------");
-        System.out.println("--------------------------=== "+CuentaAhorro.tipoCuenta+" ===--------------------------");
+        System.out.println("--------------------------=== "+this.getTipoCuenta()+" ===--------------------------");
         System.out.println("--------------------------------- DEPOSITOS ----------------------------------");
         System.out.println("Por favor, indica el monto a depositar. Ejemplo: 50000");
         int deposito = teclado.nextInt(); 
         if (deposito > 0) {
-           saldoUsuario = CuentaAhorro.getSaldo();
+           saldoUsuario = this.getSaldo();
            saldoUsuario = saldoUsuario + deposito;
            CuentaAhorro.setSaldo(saldoUsuario);
            System.out.println("Deposito realizado!");
            System.out.println("Haz hecho un deposito por un total de: $ "+deposito+" pesos.");
-           System.out.println("Tu nuevo saldo es: $ "+CuentaAhorro.getSaldo()+" pesos.");
+           System.out.println("Tu nuevo saldo es: $ "+this.getSaldo()+" pesos.");
            } else {
                 System.out.println("[ERROR] No se permite el ingreso de montos menores o iguales a 0 pesos. Por favor introduce un monto valido");
             }
@@ -79,22 +79,22 @@ public class CuentaAhorro extends CuentaBancaria {
     @Override
     public void girarDinero() {
 
-        CuentaAhorro.setTipoCuenta();
+        this.setTipoCuenta();
         teclado.nextLine();
         System.out.println("--------------------------- ACCEDIENDO AL SISTEMA ---------------------------");
-        System.out.println("--------------------------=== "+CuentaAhorro.tipoCuenta+" ===--------------------------");
+        System.out.println("--------------------------=== "+this.getTipoCuenta()+" ===--------------------------");
             System.out.println("---------------------------- RETIRAR DINERO -----------------------------");
             System.out.println("Por favor digita el monto que deseas retirar: ");
             int giroUsuario = teclado.nextInt();
             if (giroUsuario <= 0) {
                 System.out.println("[ERROR] El monto a retirar debe ser mayor a 0 pesos");
-            } else if (giroUsuario > CuentaAhorro.getSaldo()) {
+            } else if (giroUsuario > this.getSaldo()) {
                 System.out.println("[ERROR] El monto a retirar excede tu saldo actual");
             } else {
-            int nuevoSaldo = CuentaAhorro.getSaldo();
+            int nuevoSaldo = this.getSaldo();
             nuevoSaldo = nuevoSaldo - giroUsuario;
-            CuentaAhorro.setSaldo(nuevoSaldo);
-                System.out.println("Retiro exitoso! Tu nuevo saldo es: $ "+CuentaAhorro.getSaldo()+" pesos.");
+            this.setSaldo(nuevoSaldo);
+                System.out.println("Retiro exitoso! Tu nuevo saldo es: $ "+this.getSaldo()+" pesos.");
             }
 
     }
@@ -102,11 +102,11 @@ public class CuentaAhorro extends CuentaBancaria {
     @Override
     public void calcularInteres() {
         
-        CuentaAhorro.setTipoCuenta();
+        this.setTipoCuenta();
         System.out.println("--------------------------- ACCEDIENDO AL SISTEMA ---------------------------");
-        System.out.println("--------------------------=== "+CuentaAhorro.tipoCuenta+" ===--------------------------");
+        System.out.println("--------------------------=== "+this.getTipoCuenta()+" ===--------------------------");
         System.out.println("----------------------------- CALCULAR INTERES ------------------------------");   
-        double tasaInteres = 1.5, saldoConInteres = CuentaAhorro.getSaldo() + (CuentaAhorro.getSaldo() * tasaInteres);
+        double tasaInteres = 1.5, saldoConInteres = this.getSaldo() + (this.getSaldo() * tasaInteres);
         System.out.println("Su tasa de interes por el periodo es: "+tasaInteres+"%");
         System.out.println("Su saldo al final del periodo sera de $"+saldoConInteres);                
         
@@ -117,11 +117,11 @@ public class CuentaAhorro extends CuentaBancaria {
     @Override
     public void consultarSaldo() {
         
-        CuentaAhorro.setTipoCuenta();
+        this.setTipoCuenta();
         System.out.println("--------------------------- ACCEDIENDO AL SISTEMA ---------------------------");
-        System.out.println("--------------------------=== "+CuentaAhorro.tipoCuenta+" ===--------------------------");
+        System.out.println("--------------------------=== "+this.getTipoCuenta()+" ===--------------------------");
         System.out.println("----------------------------- CONSULTA SALDO ------------------------------");
-        System.out.println("Tu saldo es: $ "+CuentaAhorro.getSaldo()+" pesos.");
+        System.out.println("Tu saldo es: $ "+this.getSaldo()+" pesos.");
     }
     
 }

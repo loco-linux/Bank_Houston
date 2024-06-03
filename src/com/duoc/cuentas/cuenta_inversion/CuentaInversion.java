@@ -4,6 +4,7 @@
  */
 package com.duoc.cuentas.cuenta_inversion;
 
+
 import com.duoc.cuentas.CuentaBancaria;
 import java.util.Scanner;
 
@@ -56,19 +57,19 @@ public class CuentaInversion extends CuentaBancaria {
     @Override
     public void depositarDinero() {
 
-        CuentaInversion.setTipoCuenta();
+        this.setTipoCuenta();
         System.out.println("--------------------------- ACCEDIENDO AL SISTEMA ---------------------------");
-        System.out.println("--------------------------=== "+CuentaInversion.tipoCuenta+" ===--------------------------");
+        System.out.println("--------------------------=== "+this.getTipoCuenta()+" ===--------------------------");
         System.out.println("--------------------------------- DEPOSITOS ----------------------------------");
         System.out.println("Por favor, indica el monto a depositar. Ejemplo: 50000");
         int deposito = teclado.nextInt(); 
         if (deposito > 0) {
-           saldoUsuario = CuentaInversion.getSaldo();
+           saldoUsuario = this.getSaldo();
            saldoUsuario = saldoUsuario + deposito;
-           CuentaInversion.setSaldo(saldoUsuario);
+           this.setSaldo(saldoUsuario);
            System.out.println("Deposito realizado!");
            System.out.println("Haz hecho un deposito por un total de: $ "+deposito+" pesos.");
-           System.out.println("Tu nuevo saldo es: $ "+CuentaInversion.getSaldo()+" pesos.");
+           System.out.println("Tu nuevo saldo es: $ "+this.getSaldo()+" pesos.");
            } else {
                 System.out.println("[ERROR] No se permite el ingreso de montos menores o iguales a 0 pesos. Por favor introduce un monto valido");
             }
@@ -82,22 +83,22 @@ public class CuentaInversion extends CuentaBancaria {
     public void girarDinero() {
 
 
-        CuentaInversion.setTipoCuenta();
+        this.setTipoCuenta();
         teclado.nextLine();
         System.out.println("--------------------------- ACCEDIENDO AL SISTEMA ---------------------------");
-        System.out.println("--------------------------=== "+CuentaInversion.tipoCuenta+" ===--------------------------");
+        System.out.println("--------------------------=== "+this.getTipoCuenta()+" ===--------------------------");
             System.out.println("---------------------------- RETIRAR DINERO -----------------------------");
             System.out.println("Por favor digita el monto que deseas retirar: ");
             int giroUsuario = teclado.nextInt();
             if (giroUsuario <= 0) {
                 System.out.println("[ERROR] El monto a retirar debe ser mayor a 0 pesos");
-            } else if (giroUsuario > CuentaInversion.getSaldo()) {
+            } else if (giroUsuario > this.getSaldo()) {
                 System.out.println("[ERROR] El monto a retirar excede tu saldo actual");
             } else {
-            int nuevoSaldo = CuentaInversion.getSaldo();
+            int nuevoSaldo = this.getSaldo();
             nuevoSaldo = nuevoSaldo - giroUsuario;
-            CuentaInversion.setSaldo(nuevoSaldo);
-                System.out.println("Retiro exitoso! Tu nuevo saldo es: $ "+CuentaInversion.getSaldo()+" pesos.");
+            this.setSaldo(nuevoSaldo);
+                System.out.println("Retiro exitoso! Tu nuevo saldo es: $ "+this.getSaldo()+" pesos.");
             }
 
     }
@@ -105,11 +106,11 @@ public class CuentaInversion extends CuentaBancaria {
     @Override
     public void calcularInteres() {
         
-        CuentaInversion.setTipoCuenta();
+        this.setTipoCuenta();
         System.out.println("--------------------------- ACCEDIENDO AL SISTEMA ---------------------------");
-        System.out.println("--------------------------=== "+CuentaInversion.tipoCuenta+" ===--------------------------");
+        System.out.println("--------------------------=== "+this.getTipoCuenta()+" ===--------------------------");
         System.out.println("----------------------------- CALCULAR INTERES ------------------------------");   
-        double saldoConInteres = CuentaInversion.getSaldo() + (CuentaInversion.getSaldo() * tasaInteres);
+        double saldoConInteres = this.getSaldo() + (this.getSaldo() * tasaInteres);
         System.out.println("Su tasa de interes por el periodo es: "+tasaInteres+"%");
         System.out.println("Su saldo al final del periodo sera de $"+saldoConInteres);                
         
@@ -119,11 +120,11 @@ public class CuentaInversion extends CuentaBancaria {
     @Override
     public void consultarSaldo() {
         
-        CuentaInversion.setTipoCuenta();
+        this.setTipoCuenta();
         System.out.println("--------------------------- ACCEDIENDO AL SISTEMA ---------------------------");
-        System.out.println("--------------------------=== "+CuentaInversion.tipoCuenta+" ===--------------------------");
+        System.out.println("--------------------------=== "+this.getTipoCuenta()+" ===--------------------------");
         System.out.println("----------------------------- CONSULTA SALDO ------------------------------");
-        System.out.println("Tu saldo es: $ "+CuentaInversion.getSaldo()+" pesos.");
+        System.out.println("Tu saldo es: $ "+this.getSaldo()+" pesos.");
     }    
     
 }

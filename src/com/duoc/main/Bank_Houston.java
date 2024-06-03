@@ -118,7 +118,7 @@ public class Bank_Houston {
         System.out.println("[ERROR] POR FAVOR DIGITE UNA OPCION VALIDA.");
                 }
         } while (opcionUsuario != 3);
-                System.out.println("**** Gracias por operar con BANK HOUSTON ****");
+                System.out.println("**** =GRACIAS POR OPERAR CON BANK HOUSTON= ****");
         
                 
     teclado.close();
